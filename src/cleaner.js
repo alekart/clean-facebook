@@ -139,6 +139,10 @@ export function clean(options) {
     if (innerSpan) {
       const spans = innerSpan.querySelectorAll('span');
       const spansText = [...spans].reduce((accum, span) => {
+        const top = parseInt(window.getComputedStyle(span, null).top, 10);
+        if(top > 0){
+          return accum;
+        }
         return `${accum}${span.innerHTML}`;
       }, '');
       return doesItContainsAllWordLetters(i18n('sponsored', lang), spansText);
