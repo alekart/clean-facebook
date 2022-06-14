@@ -4,8 +4,12 @@
   "description": "Chrome Plugin to remove unwanted facebook content (sponsored/suggested posts)",
   "private": false,
   "scripts": {
-    "start": "webpack serve",
-    "build": "webpack --config webpack-build.config.js"
+    "watch": "webpack --watch",
+    "build": "webpack --config webpack-build.config.js && npm run cleanCssJs",
+    "prewatch": "npm run cleanDist",
+    "prebuild": "npm run cleanDist",
+    "cleanCssJs": "rm dist/popup-style.js dist/content-style.js",
+    "cleanDist": "rm -rf dist"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
