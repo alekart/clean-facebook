@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
+    "@types/chrome": "^0.0.190",
     "@types/sass": "^1.43.1",
     "babel-loader": "^8.2.5",
     "babel-plugin-lodash": "^3.3.4",
