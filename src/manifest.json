@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "Clean Facebook",
-  "author": "Aleksei Polechin aka Alek´",
-  "version": "0.1.0",
-  "description": "Browse Facebook without sponsored and suggested content",
+  "version": "1.0.0",
+  "author": "Aleksei Polechin aka alek´",
+  "description": "Facebook feed without sponsored and suggested content",
   "icons": {
     "16": "icons/icon_16.png",
     "32": "icons/icon_32.png",
@@ -25,6 +25,9 @@
       "run_at": "document_end",
       "js": [
         "content.js"
+      ],
+      "css": [
+        "content-style.css"
       ]
     }
   ]

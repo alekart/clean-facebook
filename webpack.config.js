@@ -9,6 +9,7 @@ module.exports = {
     popup: './src/scripts/popup.ts',
     content: './src/scripts/content.ts',
     'popup-style': './src/styles/popup.scss',
+    'content-style': './src/styles/content.scss',
   },
   plugins: [
     new MiniCssExtractPlugin(),
