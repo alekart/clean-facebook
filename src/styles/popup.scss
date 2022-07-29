@@ -17,3 +17,15 @@ label {
   font-size: 12px;
   padding: 15px 5px 0;
 }
+
+.version {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  text-align: right;
+  font-size: 8px;
+
+  &:before {
+    content: 'v';
+  }
+}
