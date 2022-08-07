@@ -1,10 +1,10 @@
 // This will hide "unwanted" content that was marked by the plugin
-[data-cleanface] {
-  display: none
+.cleanface [data-cleanface] {
+  display: none !important;
 }
 
 // They live: instead of hiding the content
-.they-live {
+.cleanface.they-live {
   [data-cleanface][data-theylive] {
     position: relative;
     display: block;

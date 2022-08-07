@@ -12,7 +12,7 @@ export class Cleaner {
   constructor(private settings: Settings) {
     this.lang = Cleaner.getDocumentLang();
     this.feed = document.querySelector('[role="feed"]');
-
+    document.body.classList.add('cleanface');
     if (this.settings.theyLive) {
       // add .they-live class on body when "They Live" mode is enabled
       document.body.classList.add('they-live');
