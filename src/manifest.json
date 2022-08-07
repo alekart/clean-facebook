@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Clean Facebook",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Aleksei Polechin aka alek´",
   "description": "Facebook feed without sponsored and suggested content",
   "icons": {
