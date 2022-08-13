@@ -22,10 +22,10 @@ function setCheckboxesValues(checkBoxes: HTMLInputElement[], settings: Settings)
   keys.forEach((key) => {
     const value = settings[key as keyof Settings];
     const checkbox = checkBoxes.find((chk) => chk.name === key);
-    if(checkbox) {
+    if (checkbox) {
       checkbox.checked = value;
     }
-  })
+  });
 }
 
 (function () {

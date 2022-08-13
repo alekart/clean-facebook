@@ -8,6 +8,7 @@ export class Cleaner {
   readonly checkedAttribute = 'data-cleanchecked';
   readonly theyLiveAttribute = 'data-theylive';
   readonly feed: HTMLElement;
+  private feedObserver: MutationObserver;
 
   constructor(private settings: Settings) {
     this.lang = Cleaner.getDocumentLang();
@@ -90,11 +91,18 @@ export class Cleaner {
 
   run() {
     this.clean(false);
-    const feedObserver = new MutationObserver(() => {
+    this.feedObserver = new MutationObserver(() => {
       this.clean();
     });
 
-    feedObserver.observe(this.feed, { attributes: false, childList: true });
+    this.feedObserver.observe(this.feed, { attributes: false, childList: true });
+  }
+
+  /**
+   * Returns true if mutation observer is defined.
+   */
+  isRunning(): boolean {
+    return !!this.feedObserver;
   }
 
   private clean(skipSide = true) {
