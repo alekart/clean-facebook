@@ -186,8 +186,8 @@ export class Cleaner {
   /**
    * Complex and a bit heavy way to detect Sponsored posts in facebook feed.
    * 1. get all the links present in the Feed center part
-   * 2. get 'text' element that is nested in the link 'span > span > div'
-   * 3. get all divs inside the "text" element
+   * 2. get 'text' element that is nested in the link 'span > span > span'
+   * 3. get all spans inside the "text" element
    *  It contains lots of elements with one character inside and even if is not sponsored post
    *  it contains all letters that compose the word "Sponsored" but it is not visible, they are
    *  hidden with top position and parent hidden overflow
@@ -200,9 +200,9 @@ export class Cleaner {
     if (/^\/ads\//.test(href)) {
       return true;
     }
-    const innerSpan = link.querySelector('span > span > div');
+    const innerSpan = link.querySelector('span > span > span') || link.querySelector('span > span > div');
     if (innerSpan) {
-      const divs = innerSpan.querySelectorAll('div');
+      const divs = innerSpan.querySelectorAll('span') || innerSpan.querySelectorAll('div');
       const elements: Element[] = [];
       divs.forEach((d) => elements.push(d));
       const elementsTexts = elements.reduce((accum, span) => {

@@ -1,5 +1,5 @@
 export class TheyLive {
-  static adwords = ['buy', 'consume', 'no independent thoughts'];
+  static adwords = ['buy', 'consume', 'conform', 'no thoughts'];
   static watchWords = ['watch', 'no imagination'];
 
   static random(min: number, max: number) {
@@ -9,7 +9,7 @@ export class TheyLive {
   }
 
   static word(list: string[] = TheyLive.adwords): string {
-    const index = list?.length > 1 ? TheyLive.random(0, list.length - 1) : 0;
+    const index = list?.length > 1 ? TheyLive.random(0, list.length) : 0;
     return list?.[index] || TheyLive.adwords[0];
   }
 }
