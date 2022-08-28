@@ -1,8 +1,16 @@
 import { i18n } from './i18n';
 import { TheyLive } from './they-live.class';
 import { Settings } from './interfaces/settings.interface';
+import { version } from '../manifest.json';
 
 export class Cleaner {
+  static version = version;
+  static defaultOptions: Settings = {
+    sponsored: true,
+    suggestions: true,
+    videos: true,
+    theyLive: true,
+  };
   readonly lang: string;
   readonly attributeName = 'data-cleanface';
   readonly checkedAttribute = 'data-cleanchecked';

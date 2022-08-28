@@ -3,4 +3,6 @@ export interface Settings {
   suggestions?: boolean;
   videos?: boolean;
   theyLive?: boolean;
+  updatedOn?: number;
+  version?: string;
 }
