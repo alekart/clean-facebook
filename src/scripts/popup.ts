@@ -1,5 +1,6 @@
 import { Settings } from './interfaces/settings.interface';
 import { ChromeHelpers } from './helpers/chrome-helpers.class';
+import { version } from '../../package.json';
 
 function getCheckboxesElements(): HTMLInputElement[] {
   const list: HTMLInputElement[] = [];
@@ -32,6 +33,10 @@ function setCheckboxesValues(checkBoxes: HTMLInputElement[], settings: Settings)
   const checkBoxes = getCheckboxesElements();
   const mainOptions = checkBoxes.filter((chk) => chk.name !== 'theyLive');
   const theyLiveChk = checkBoxes.find((chk) => chk.name === 'theyLive');
+  const versionContainer = document.querySelector('.version');
+  if (versionContainer) {
+    versionContainer.innerHTML = version;
+  }
 
   ChromeHelpers.getOptions().then((settings) => {
     setCheckboxesValues(checkBoxes, settings || {});
