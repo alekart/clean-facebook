@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Clean Facebook</title>
-    <link rel="stylesheet" href="popup-style.css"/>
+  <meta charset="UTF-8">
+  <title>Clean Facebook</title>
+  <link rel="stylesheet" href="popup-style.css"/>
 </head>
 <body>
 <h1>Clean Facebook</h1>
 <form action="">
+  <p>
     <label>
-        <input type="checkbox" name="sponsored"> Hide sponsored content
+      Facebook language
+      <select data-lang name="language">
+        <option value="fr" data-fr>fr</option>
+        <option value="en" data-en>en</option>
+      </select>
     </label>
-    <label>
-        <input type="checkbox" name="suggestions"> Hide suggested content
-    </label>
-    <label>
-        <input type="checkbox" name="videos"> Hide Reels and Videos
-    </label>
-    <hr>
-    <label>
-        <input type="checkbox" name="theyLive"> "They Live" mode
-    </label>
+  </p>
+  <label>
+    <input type="checkbox" name="sponsored"> Hide sponsored content
+  </label>
+  <label>
+    <input type="checkbox" name="suggestions"> Hide suggested content
+  </label>
+  <label>
+    <input type="checkbox" name="videos"> Hide Reels and Videos
+  </label>
+  <hr>
+  <label>
+    <input type="checkbox" name="theyLive"> "They Live" mode
+  </label>
 </form>
 <div class="they-live-legend">
-    <strong>They live</strong> is a 1988 American science fiction action film.
-    (<a href="https://en.wikipedia.org/wiki/They_Live" target="_blank">Wikipedia</a>)
+  <strong>They live</strong> is a 1988 American science fiction action film.
+  (<a href="https://en.wikipedia.org/wiki/They_Live" target="_blank">Wikipedia</a>)
 </div>
 <div class="version"></div>
 <script src="popup.js"></script>

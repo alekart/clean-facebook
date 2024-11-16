@@ -33,6 +33,7 @@ function setCheckboxesValues(checkBoxes: HTMLInputElement[], settings: Settings)
   const checkBoxes = getCheckboxesElements();
   const mainOptions = checkBoxes.filter((chk) => chk.name !== 'theyLive');
   const theyLiveChk = checkBoxes.find((chk) => chk.name === 'theyLive');
+  const select = document.querySelector('[data-lang]');
   const versionContainer = document.querySelector('.version');
   if (versionContainer) {
     versionContainer.innerHTML = version;
@@ -40,6 +41,13 @@ function setCheckboxesValues(checkBoxes: HTMLInputElement[], settings: Settings)
 
   ChromeHelpers.getOptions().then((settings) => {
     setCheckboxesValues(checkBoxes, settings || {});
+    select.querySelector(`[data-${settings.language}]`)?.setAttribute('selected', '');
+  });
+
+  select.addEventListener('change', (event) => {
+    select.querySelector(`[selected]`).removeAttribute('selected');
+    const selectedValue = (event.target as any).value;
+    ChromeHelpers.setLang(selectedValue);
   });
 
   checkBoxes.forEach((chk) => {
