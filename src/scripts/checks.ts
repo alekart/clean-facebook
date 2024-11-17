@@ -14,6 +14,7 @@ export const checks: Record<string, Record<string, string[]>> = {
     sponsored: ['Sponsorisé'],
     suggestions: [
       '· Suivre',
+      '· Rejoindre',
     ],
     videos: ['Reels et vidéos courtes'],
     sideSponsored: ['^Sponsorisé'],
