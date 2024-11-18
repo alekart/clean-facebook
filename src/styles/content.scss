@@ -3,6 +3,22 @@
   display: none !important;
 }
 
+.cleanface-badge {
+  position: fixed;
+  top: 5px;
+  left: 40px;
+  display: block;
+  padding: 1px 2px;
+  transform: translateX(50%);
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1em;
+  color: white;
+  background-color: red;
+}
+
 // They live: instead of hiding the content
 .cleanface.they-live {
   [data-cleanface] {

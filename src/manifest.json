@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Clean Facebook",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "author": "Aleksei Polechin aka alek´",
   "description": "Facebook feed without sponsored and suggested content",
   "icons": {
@@ -16,6 +16,9 @@
   },
   "permissions": [
     "storage"
+  ],
+  "host_permissions": [
+    "https://*.facebook.com/*"
   ],
   "content_scripts": [
     {

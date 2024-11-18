@@ -1,33 +1,32 @@
 import { Cleaner } from './cleaner';
 import { ChromeHelpers } from './helpers/chrome-helpers.class';
+import { Settings } from './interfaces/settings.interface';
 
 let cleaner: Cleaner;
 let retries = 0;
 
-function prepareAndRunCleaner() {
-  ChromeHelpers.getOptions().then((settings) => {
+function createCleaner(settings: Settings) {
+  try {
     cleaner = new Cleaner(settings);
     cleaner.run();
-    if (cleaner?.isRunning()) {
-      console.log('Clean Facebook is running.');
+    console.log('Facebook Cleaner start');
+  } catch (e) {
+    if(retries < 5) {
+      retries += 1;
+      setTimeout(() => {
+        console.log(`Trying to run Clean Facebook. Retry: ${retries}`);
+        createCleaner(settings);
+      }, 500);
+    } else {
+      console.error(`Clean Facebook could not run after ${retries} retries. Aborting.`);
     }
-  });
+  }
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  // Initial run on dom ready
-  prepareAndRunCleaner();
-  // Every 500ms check if cleaner is running, if it is remove interval otherwise run it again
-  const interval = setInterval(() => {
-    if (cleaner?.isRunning() || retries === 5) {
-      if(retries === 5){
-        console.log(`Clean Facebook could not run after ${retries} retries. Aborting.`);
-      }
-      clearInterval(interval);
-      return;
-    }
-    retries += 1;
-    prepareAndRunCleaner();
-    console.log(`Trying to run Clean Facebook. Retry: ${retries}`);
-  }, 500);
+  async function start() {
+    const settings = await ChromeHelpers.getOptions();
+    createCleaner(settings)
+  }
+  start();
 });

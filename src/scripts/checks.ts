@@ -1,33 +1,33 @@
 import { Settings } from './interfaces/settings.interface';
 
-export const checks: Record<string, Record<string, string[]>> = {
+export const checks: Record<string, Record<string, RegExp[]>> = {
   en: {
-    sponsored: ['Sponsored'],
+    sponsored: [/Sponsored/],
     suggestions: [
-      '· Follow(?!ing)',
-      '· Join',
+      /· Follow(?!ing)/,
+      /· Join/,
     ],
-    videos: ['^Reels and short videos'],
-    sideSponsored: ['^Sponsored'],
+    videos: [/^Reels and short videos/],
+    sideSponsored: [/^Sponsored/],
   },
   fr: {
-    sponsored: ['Sponsorisé'],
+    sponsored: [/Sponsorisé/],
     suggestions: [
-      '· Suivre',
-      '· Rejoindre',
+      /·\sSuivre./,
+      /·\sRejoindre./,
     ],
-    videos: ['Reels et vidéos courtes'],
-    sideSponsored: ['^Sponsorisé'],
+    videos: [/Reels et vidéos courtes/],
+    sideSponsored: [/^Sponsorisé'/],
   },
 };
 
 export function getChecks(language: string, settings: Settings): RegExp[] {
   const c = checks[language];
-  const strings: string[] = [];
+  const regex: RegExp[] = [];
   Object.keys(settings).forEach((key) => {
     if (c[key]) {
-      strings.push(...c[key]);
+      regex.push(...c[key]);
     }
   });
-  return strings.map((s) => new RegExp(s));
+  return regex;
 }

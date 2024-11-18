@@ -1,5 +1,5 @@
 export class TheyLive {
-  static adwords = ['consume', 'conform', 'no thoughts', 'watch', 'no imagination'];
+  static adwords = ['consume', 'conform', 'no thoughts', 'watch', 'no imagination', 'buy'];
 
   static random(min: number, max: number) {
     min = Math.ceil(min);
