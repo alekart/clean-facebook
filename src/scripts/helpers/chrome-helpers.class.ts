@@ -18,14 +18,14 @@ export class ChromeHelpers {
     chrome.storage.sync.set({
       options,
       version: Cleaner.version,
-      updatedOn: new Date().getTime()
+      updatedOn: new Date().getTime(),
     });
   }
 
   static setLang(lang?: string) {
     chrome.storage.sync.set({
       language: lang || 'en',
-      updatedOn: new Date().getTime()
+      updatedOn: new Date().getTime(),
     });
   }
 }
