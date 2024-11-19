@@ -1,6 +1,6 @@
 import { Settings } from './interfaces/settings.interface';
 import { ChromeHelpers } from './helpers/chrome-helpers.class';
-import { version } from '../../package.json';
+import { version } from '../manifest.json';
 
 function getCheckboxesElements(): HTMLInputElement[] {
   const list: HTMLInputElement[] = [];
