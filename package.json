@@ -1,15 +1,11 @@
 {
   "name": "clean-facebook",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Chrome Plugin to remove unwanted facebook content (sponsored/suggested posts)",
   "private": false,
   "scripts": {
     "watch": "webpack --watch",
-    "build": "webpack --config webpack-build.config.js && npm run cleanCssJs",
-    "prewatch": "npm run cleanDist",
-    "prebuild": "npm run cleanDist",
-    "cleanCssJs": "rm dist/popup-style.js dist/content-style.js",
-    "cleanDist": "rm -rf dist",
+    "build": "webpack --config webpack-build.config.js",
     "bump-next-major": "node ./scripts/bump-version.js major next",
     "bump-next-minor": "node ./scripts/bump-version.js minor next",
     "bump-next-patch": "node ./scripts/bump-version.js patch next",
